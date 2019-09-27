@@ -1,0 +1,16 @@
+{
+  "name": "js_waw_280919",
+  "version": "1.0.0",
+  "description": "Wprowadzenie do języka JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "start": "browser-sync start --server --files '*.*'"
+  },
+  "keywords": [],
+  "author": "Andrii Dmytriv",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "nodemon": "^1.19.2"
+  }
+}
