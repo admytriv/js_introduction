@@ -55,3 +55,173 @@ console.log('Największa liczba', Math.max(...numbers));
 
 console.log('Najmniejsza liczba', min);
 console.log('Najmniejsza liczba', Math.min(...numbers));
+
+// Zadanie 10
+function iloczyn(num1, num2) {
+    if (typeof num1 !== "number" || typeof num2 !== "number") {
+        return false;
+    }
+    return num1 * num2;
+}
+console.log(iloczyn(2, 3));
+console.log(iloczyn(1, 's'));
+
+// Zadanie 11
+function splitter(text, delimiter) {
+    const words = text.split(delimiter);
+    words.forEach((word, index) => {
+        words[index] = word[0].toUpperCase() + word.slice(1);
+    });
+    return words.join(delimiter);
+}
+
+console.log(splitter('ala ma kota', ' '));
+
+// Zadanie 12
+(function (name, age) {
+    console.log(`Nazywam się ${name}. Mój wiek to - ${age}`);
+})('Andrii', 24)
+
+// Zadanie 13
+function sum() {
+    let sum = 0;
+    for (const argument of arguments) {
+        if (typeof argument !== 'number') {
+            continue;
+        }
+        sum += argument;
+    }
+    return sum;
+}
+
+console.log(sum(1, 3, 5, 7, 9));
+
+// Zadanie 14
+function fizzbuz(toNumber) {
+    let counter = 1;
+
+    while (counter < toNumber) {
+        if (counter % 3 === 0 && counter % 5 === 0) {
+            console.log('fizzbuz', counter);
+        } else if (counter % 3 === 0) {
+            console.log('fizz', counter);
+        } else if (counter % 5 === 0) {
+            console.log('buz', counter);
+        }
+        counter += 1;
+    }
+}
+
+fizzbuz(100);
+
+// Zadanie 15
+console.log(Object.getOwnPropertyNames(Math));
+console.log(Object.getOwnPropertyNames(console));
+
+// Zadanie 16
+const product = {
+    name: 'Product',
+    price: 80,
+};
+const copy = Object.assign({}, product);
+// Lub const copy = JSON.parse(JSON.stringify(product));
+copy.name = 'Copy';
+copy['price'] = 21;
+console.log(product, copy);
+
+// Zadanie 17
+const user = {
+    name: 'Andrii',
+    lastName: 'Dmytriv',
+    age: 24,
+    city: 'Warsaw',
+    sayHello: function () {
+        return `Imię: ${this.name}. Nazwisko: ${this.lastName}. Wiek: ${this.age}. Miasto: .${this.city}`;
+    }
+};
+console.log(user.sayHello());
+
+// Zadanie 18
+const names = [
+    'Olivia', 'Oliver', 'Amelia', 'George', 'Isla', 'Harry', 'Ava', 'Noah',
+    'Emily', 'Jack', 'Sophia', 'Charlie', 'Grace', 'Leo', 'Mia', 'Jacob',
+    'Poppy', 'Freddie', 'Ella', 'Alfie',
+];
+console.log(names.sort());
+
+// Zadanie 19
+function sortByLength(a, b) {
+    if (a.length < b.length) {
+        return -1;
+    } else if (a.length > b.length) {
+        return 1;
+    }
+    return 0;
+}
+console.log(names.sort(sortByLength));
+
+// Zadanie 20
+const productNumbers = [1, 2, 3, 4, 5, 6];
+console.log(productNumbers.reduce((product, number) => {
+    return product * number;
+}));
+
+// Zadanie 21
+const months = [, 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+function getMoth(number) {
+    return months[number];
+}
+console.log(getMoth(3));
+
+// Zadanie 22
+const vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
+
+function getVowels(text) {
+    const vowelsInText = Array.from(text).filter((letter) => vowels.includes(letter));
+    return {
+        vowels: vowelsInText,
+        count: vowelsInText.length,
+    };
+}
+console.log(getVowels(lorem));
+
+// Zadanie 23
+const book = {
+    users: [],
+    addUser: function (user) {
+        this.users.push(user);
+        return this.users;
+    },
+    showUsers: function () {
+        console.log(this.users);
+        return this.users;
+    },
+    hasUser: function (user) {
+        return this.users.indexOf(user) !== 0 ? false : true;
+    },
+    getCount: function () {
+        console.log(this.users.length);
+        return this.users.length;
+    },
+    resetUsers: function () {
+        this.users.length = 0;
+        return this.users;
+    }
+};
+
+book.addUser('Andrii');
+book.showUsers();
+book.hasUser('Andrii');
+book.getCount();
+book.resetUsers();
+book.showUsers();
+
+// Zadanie 24
+function isPalindrome(text) {
+    const reversedText = text.split('').reverse().join('');
+    return reversedText.toLowerCase() === text.toLowerCase();
+}
+
+console.log(isPalindrome('Text'));
+console.log(isPalindrome('Civic'));
